@@ -1,30 +1,23 @@
 package com.example.demo;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RequestMapping("/detail")
 @RestController
 public class MyController {
-    @RequestMapping("/product")
-    public Store product() {
-        Store store = new Store();
-        List<String> list = new ArrayList<>();
-        list.add("蘋果");
-        list.add("橘子");
-        store.setProductList(list);
-        return store;
-    }
 
-    @RequestMapping("/user")
-    public Student user() {
-
-        Student student = new Student();
-        student.setName("Judy");
-        return student;
+    @RequestMapping("/test1")
+    public String test1(@RequestParam Integer id,
+                        @RequestParam(required = false) String name,
+                        @RequestParam(defaultValue = "12") String age){
+        System.out.println("id:" + id);
+        System.out.println("name:" + name);
+        System.out.println("age:" + age);
+        return  "Hello test1" + id + name;
     }
 }
 
