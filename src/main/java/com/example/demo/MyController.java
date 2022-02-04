@@ -8,13 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
 
-    @RequestMapping("/test")
+    @RequestMapping("/test1")
     public String test() {
-        throw new RuntimeException("test error");
+        System.out.println("執行 test1 方法");
+        return "11111";
     }
 
     @RequestMapping("/test2")
     public  String test2() {
-        throw new IllegalArgumentException("test2 error");
+        System.out.println("執行 test2 方法");
+        return "22222";
     }
 }
