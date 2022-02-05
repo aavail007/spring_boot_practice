@@ -4,6 +4,7 @@ import com.example.demo.Student;
 import com.example.demo.StudentRowMapper;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -18,6 +19,14 @@ import java.util.Map;
 public class studentController {
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    @Autowired
+    @Qualifier("test1JdbcTemplate")
+    private NamedParameterJdbcTemplate test1JdbcTemplate;
+
+    @Autowired
+    @Qualifier("test2JdbcTemplate")
+    private NamedParameterJdbcTemplate test2JdbcTemplate;
 
     @Autowired
     private StudentService studentService;
